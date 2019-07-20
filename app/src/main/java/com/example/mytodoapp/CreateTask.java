@@ -51,6 +51,7 @@ public class CreateTask extends AppCompatActivity {
         finally {
             realm.close();
         }
+         onBackPressed();
     }
 
     public void discard(View view)
