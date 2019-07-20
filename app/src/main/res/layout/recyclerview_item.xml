@@ -38,7 +38,7 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="42sp"
             android:layout_toRightOf="@id/text1"
             android:textColor="@android:color/white"
@@ -61,10 +61,11 @@
             android:id="@+id/click"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_check_box"
             android:layout_toRightOf="@id/taskname"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"/>
+            android:src="@drawable/mbutton"
+            android:layout_marginTop="20dp"
+            />
 
 
     </RelativeLayout>

@@ -124,13 +124,16 @@ public class Dashboard extends AppCompatActivity  {
             Log.i("dashboard","task exist");
         FragmentManager fm=getSupportFragmentManager();
         FragmentTransaction ft=fm.beginTransaction();
-        if(task.size()==0){
-            Toast.makeText(this, "Fragment to be loaded", Toast.LENGTH_SHORT).show();
+        if(task.size()==0)
+            {   Toast.makeText(this, "Fragment to be loaded", Toast.LENGTH_SHORT).show();
             ft.add(R.id.frame_container,new Fragment2());}
+        //ft.addToBackStack(null);}
         else
         {
 
-            ft.replace(R.id.frame_container,new Fragment1(task));}
+            ft.replace(R.id.frame_container,new Fragment1(task));
+        //ft.addToBackStack(null);
+            }
         ft.commit();
 
 
@@ -158,8 +161,10 @@ public class Dashboard extends AppCompatActivity  {
        finally {
            realm.close();
        }
-       Intent intent=new Intent(this,Login_Activity.class);
-       startActivity(intent);
+
+     onBackPressed();
+
+
    }
 
 }

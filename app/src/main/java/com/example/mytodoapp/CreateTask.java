@@ -53,12 +53,12 @@ public class CreateTask extends AppCompatActivity {
         }
     }
 
-    /*public void discard(View view)
-    {   new Dashboard().onResume();
+    public void discard(View view)
+    {   //new Dashboard().onResume();
        // Intent intent=new Intent(this,Dashboard.class);
        // startActivity(intent);
-        //onDestroy();
-    }*/
+        onBackPressed();
+    }
 
    /* @Override
     protected void onDestroy() {

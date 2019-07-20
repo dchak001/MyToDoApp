@@ -25,7 +25,7 @@ public class signUp_activity extends AppCompatActivity {
     private TextView idHolder;
     private ImageView img;
     private Button saveBtn,login;
-
+    int nextId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +52,7 @@ public class signUp_activity extends AppCompatActivity {
         try
         {
             Number currentIdNum=realm.where(MyUser.class).max("id");
-            int nextId = (currentIdNum == null) ? 1 : currentIdNum.intValue() + 1;
+             nextId = (currentIdNum == null) ? 1 : currentIdNum.intValue() + 1;
             MyUser user = realm.createObject(MyUser.class, nextId);
             user.setName(name.getText().toString());
             user.setEmail(email.getText().toString());
@@ -76,7 +76,9 @@ public class signUp_activity extends AppCompatActivity {
     }
     public void moveTologin(View view){
         Intent intent=new Intent(this,Login_Activity.class);
+
         startActivity(intent);
+        finish();
     }
 }
 

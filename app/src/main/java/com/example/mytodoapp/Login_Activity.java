@@ -36,13 +36,13 @@ public class Login_Activity extends AppCompatActivity {
         mpass.setText("");
         muserid.requestFocus();
     }
-
+/*
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
-    }
+    }*/
 
     public void onLoginPressed(View view)
     {
@@ -64,6 +64,7 @@ public class Login_Activity extends AppCompatActivity {
             b.putString("id",Integer.toString(user.getId()));
             intent.putExtras(b);
             startActivity(intent);
+           // finish();
         }catch (NullPointerException e)
         {
             Toast.makeText(this, "Invalid UserId", Toast.LENGTH_SHORT).show();
