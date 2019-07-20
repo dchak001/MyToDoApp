@@ -59,13 +59,12 @@
 
         <ImageView
             android:id="@+id/click"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@id/taskname"
-            android:layout_marginLeft="50dp"
-            android:src="@drawable/mbutton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="20dp"
-            />
+            android:layout_toRightOf="@id/taskname"
+            android:src="@drawable/mbutton" />
 
 
     </RelativeLayout>

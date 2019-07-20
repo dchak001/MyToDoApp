@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,7 +41,7 @@ public class Fragment1 extends Fragment implements MyAdapter.OnItemClickListener
     }
 
     @Override
-    public int onItemClick(int position) {
+    public int onButtonClick(int position) {
         Realm realm = Realm.getDefaultInstance();
         try {
             Log.i("hi", "position : " + position + " count : " + count);
@@ -66,5 +68,14 @@ public class Fragment1 extends Fragment implements MyAdapter.OnItemClickListener
 
 
         return 0;
+    }
+
+    public void onItemClick(int position)
+    {
+        Task t=mtask.get(position);
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.frame_container,new TaskDetails(t.getTaskName(),t.getTaskDetails(),t.getDueDate()));
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }

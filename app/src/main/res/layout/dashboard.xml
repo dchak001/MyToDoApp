@@ -8,14 +8,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_margin="20dp"
         android:text="Create task"
         android:onClick="createTask"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_margin="20dp"
         android:text="Logout"
         android:onClick="logOut"/>
 
@@ -24,9 +24,11 @@
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100sp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="200dp"></FrameLayout>
+        tools:layout_editor_absoluteY="200dp">
+
+
+    </FrameLayout>
 
 
     <!--

@@ -31,7 +31,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     }
     public interface OnItemClickListener
     {
-        public int onItemClick(int position);
+        public int onButtonClick(int position);
+        public void onItemClick(int position);
 
     }
 
@@ -91,13 +92,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             item=itemView.findViewById(R.id.background);
             button=itemView.findViewById(R.id.click);
             mitem=listener;
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(getAdapterPosition()!=RecyclerView.NO_POSITION);
+                    mitem.onItemClick(getAdapterPosition());
+                }
+            });
             button.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             if(getAdapterPosition()!=RecyclerView.NO_POSITION);
-                    mitem.onItemClick(getAdapterPosition());
+                    mitem.onButtonClick(getAdapterPosition());
             button.setImageResource(R.drawable.mbuttoncheck);
                    /* if(x==1)
                         button.setImageResource(R.drawable.ic_check_box1);
