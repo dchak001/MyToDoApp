@@ -166,5 +166,26 @@ public class Dashboard extends AppCompatActivity  {
 
 
    }
+  
+   public void allDone(View view) {
+       Realm realm = Realm.getDefaultInstance();
+       RealmResults<Task> t = realm.where(Task.class).equalTo("userId", id).and().equalTo("checked", "false").findAll();
+
+       try {
+           realm.beginTransaction();
+           for (Task t1 : t) {
+               t1.setChecked("true");
+           }
+           realm.commitTransaction();
+
+       } catch (Exception e) {
+           realm.cancelTransaction();
+       } finally {
+           realm.close();
+       }
+     t=realm.where(Task.class).equalTo("userId", id).findAll();
+       if(t.size()>0)
+         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new Fragment1(t)).commit();
+   }
 
 }
