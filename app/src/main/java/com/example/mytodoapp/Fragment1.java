@@ -56,7 +56,7 @@ public class Fragment1 extends Fragment implements MyAdapter.OnItemClickListener
             realm.copyToRealmOrUpdate(t);
             realm.commitTransaction();
             Log.i("hello", "taskname : " + t.getTaskName() + " checked : " + t.getChecked());
-            Log.i("hi", "task size : " + mtask.size());
+            Log.i("hi", "task size : " + mtask.size()+" due Date : "+t.getDueDate());
             Log.i("hello", "clicked");
         } catch (ArrayIndexOutOfBoundsException e) {
             Log.i("exception", "exception caused in position " + position);

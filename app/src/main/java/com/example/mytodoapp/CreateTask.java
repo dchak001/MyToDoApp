@@ -3,6 +3,7 @@ package com.example.mytodoapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import io.realm.Realm;
 
@@ -38,7 +40,11 @@ public class CreateTask extends AppCompatActivity {
             int nextId = (currentIdNum == null) ? 1 : currentIdNum.intValue() + 1;
             Task task=realm.createObject(Task.class,nextId);
             task.setTaskName(mname.getText().toString());
-            task.setDueDate(new SimpleDateFormat("dd/MM/yyyy").parse(mdate.getText().toString()));
+            SimpleDateFormat f=new SimpleDateFormat("dd/MM/yyyy");
+            Date d=f.parse(mdate.getText().toString());
+            Log.i("Date Received : ",mdate.getText().toString());
+            Log.i("Date : ",d.toString());
+            task.setDueDate(d);
             task.setTaskDetails(mdetails.getText().toString());
             task.setColor(mcolor.getText().toString());
             task.setUserId(id);
@@ -51,6 +57,7 @@ public class CreateTask extends AppCompatActivity {
         finally {
             realm.close();
         }
+        onBackPressed();
     }
 
     public void discard(View view)

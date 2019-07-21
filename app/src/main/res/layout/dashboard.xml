@@ -11,14 +11,29 @@
         android:layout_margin="20dp"
         android:text="Create task"
         android:onClick="createTask"/>
-    <Button
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:text="Logout"
-        android:onClick="logOut"/>
+        android:layout_marginLeft="90dp"
+        android:orientation="horizontal">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:onClick="logOut"
+            android:text="Logout" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:onClick="allDone"
+            android:text="Mark All as Done" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/frame_container"
